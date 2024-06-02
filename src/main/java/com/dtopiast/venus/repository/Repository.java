@@ -1,4 +1,4 @@
-package repository;
+package com.dtopiast.venus.repository;
 
 import com.dtopiast.venus.model.base.MyModel;
 import org.springframework.data.jpa.repository.JpaRepository;
