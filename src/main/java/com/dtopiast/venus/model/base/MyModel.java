@@ -4,20 +4,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
+/**
+ * Base class for entities in the system.
+ */
 @Entity
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-
 public abstract class MyModel {
+
+    /**
+     * The unique identifier for the entity.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 }
+
