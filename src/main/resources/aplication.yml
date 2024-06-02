@@ -1,0 +1,20 @@
+spring:
+  profile.active: dev, test, prod
+  datasource:
+    url: ${DB_URL}${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      format_sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+
+server:
+  error:
+    include-stacktrace: never
+api:
+  security:
+    secret: ${JWT_SECRET}

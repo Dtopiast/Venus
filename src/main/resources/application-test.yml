@@ -1,0 +1,25 @@
+spring:
+  profile.active: test
+  datasource:
+    url: ${DB_URL}${DB_NAME}_test?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    show-sql: true
+    hibernate:
+      format_sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+server:
+  error:
+    include-stacktrace: always
+    ddl-auto: update
+
+api:
+  security:
+    secret: ${JWT_SECRET}
