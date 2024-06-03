@@ -1,5 +1,5 @@
 spring:
-  profile.active: prod
+  profiles: prod
   datasource:
   url: ${DB_URL}${DB_NAME}?createDatabaseIfNotExist=true&serverTimezone=UTC
   username: ${DB_USER}
