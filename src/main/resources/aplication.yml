@@ -1,5 +1,5 @@
 spring:
-  profile.active: dev, test, prod
+  profile.active: dev, test
   datasource:
     url: ${DB_URL}${DB_NAME}
     username: ${DB_USER}
