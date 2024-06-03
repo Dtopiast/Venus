@@ -31,18 +31,15 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: maven
-
-      - name: Copy special properties file
-        run: cp src/main/resources/aplication.yml src/main/resources/application.yaml
+          cache: mavenl
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml -Dspring.profiles.active=prod
         env:
-          DB_URL: ${{ secrets.DEV_DB_URL }}
-          DB_NAME: ${{ secrets.DEV_DB_NAME }}
-          DB_USER: ${{ secrets.DEV_DB_USER }}
-          DB_PASSWORD: ${{ secrets.DEV_DB_PASSWORD }}
+          DB_URL: ${{ secrets.DB_URL }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       - name: Update dependency graph
         uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
