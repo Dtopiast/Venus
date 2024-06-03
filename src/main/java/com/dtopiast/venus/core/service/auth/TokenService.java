@@ -1,4 +1,4 @@
-package com.dtopiast.venus.core.service;
+package com.dtopiast.venus.core.service.auth;
 
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

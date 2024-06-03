@@ -1,4 +1,4 @@
-package com.dtopiast.venus.core.service;
+package com.dtopiast.venus.core.service.auth;
 
 import com.dtopiast.venus.domain.user.model.User;
 import com.dtopiast.venus.domain.user.specification.UserByNameSpecification;
