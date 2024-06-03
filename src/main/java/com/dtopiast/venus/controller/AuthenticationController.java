@@ -1,6 +1,7 @@
 package com.dtopiast.venus.controller;
 
 import com.dtopiast.venus.core.service.auth.JwtToken;
+import com.dtopiast.venus.core.service.auth.TokenService;
 import com.dtopiast.venus.domain.user.dto.AuthUserDto;
 import com.dtopiast.venus.domain.user.model.User;
 import jakarta.validation.Valid;
@@ -20,10 +21,10 @@ public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
 
-    private final com.dtopiast.venus.core.service.auth.TokenService tokenService;
+    private final TokenService tokenService;
     @Autowired
 
-    public AuthenticationController(AuthenticationManager authenticationManager, com.dtopiast.venus.core.service.auth.TokenService tokenService){
+    public AuthenticationController(AuthenticationManager authenticationManager, TokenService tokenService){
 
         this.authenticationManager = authenticationManager;
         this.tokenService = tokenService;
