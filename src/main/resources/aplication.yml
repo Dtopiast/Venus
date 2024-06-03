@@ -2,12 +2,12 @@ spring:
    config:
     activate:
       on-profile: test
-  datasource:
+   datasource:
     url: ${DB_URL}${DB_NAME}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
+   jpa:
     show-sql: true
     hibernate:
       format_sql: true
