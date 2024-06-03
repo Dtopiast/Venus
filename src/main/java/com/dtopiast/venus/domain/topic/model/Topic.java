@@ -3,7 +3,7 @@ package com.dtopiast.venus.domain.topic.model;
 import com.dtopiast.venus.domain.response.model.Response;
 import com.dtopiast.venus.domain.topic.dto.TopicStatus;
 import com.dtopiast.venus.domain.user.model.User;
-import com.dtopiast.venus.domain.base.model.MyModel;
+import com.dtopiast.venus.domain.base.MyModel;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;

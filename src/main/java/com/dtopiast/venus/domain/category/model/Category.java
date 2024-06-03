@@ -1,7 +1,7 @@
 package com.dtopiast.venus.domain.category.model;
 
 import com.dtopiast.venus.domain.course.model.Course;
-import com.dtopiast.venus.domain.base.model.MyModel;
+import com.dtopiast.venus.domain.base.MyModel;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
