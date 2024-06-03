@@ -1,10 +1,9 @@
-package com.dtopiast.venus.infraestructure.service.auth;
+package com.dtopiast.venus.core.service.auth;
 
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.dtopiast.venus.core.service.auth.ITokenService;
 import com.dtopiast.venus.domain.role.model.Role;
 import com.dtopiast.venus.domain.user.model.User;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +15,7 @@ import java.time.ZoneOffset;
 import java.util.stream.Collectors;
 
 @Service
-public class TokenService implements ITokenService {
+public class TokenService {
 
     private static final ZoneOffset ZONE_OFFSET = ZoneOffset.of("-05:00");
     @Value("${api.security.secret}")

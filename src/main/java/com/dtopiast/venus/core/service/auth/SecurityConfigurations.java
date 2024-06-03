@@ -1,4 +1,4 @@
-package com.dtopiast.venus.infraestructure.service.auth;
+package com.dtopiast.venus.core.service.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
