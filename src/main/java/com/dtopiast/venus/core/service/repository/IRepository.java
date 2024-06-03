@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  *
  * @param <TEntity> The type of entities managed by this repository, extending MyModel.
  */
-public interface Repository<TEntity extends MyModel> extends JpaRepository<TEntity, Long>, JpaSpecificationExecutor<TEntity> {
+public interface IRepository<TEntity extends MyModel> extends JpaRepository<TEntity, Long>, JpaSpecificationExecutor<TEntity> {
 
 }
