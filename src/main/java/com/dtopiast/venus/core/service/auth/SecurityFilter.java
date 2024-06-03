@@ -2,7 +2,7 @@ package com.dtopiast.venus.core.service.auth;
 
 import com.dtopiast.venus.domain.user.model.User;
 import com.dtopiast.venus.domain.user.specification.UserByNameSpecification;
-import com.dtopiast.venus.repository.Repository;
+import com.dtopiast.venus.core.service.auth.repository.Repository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
