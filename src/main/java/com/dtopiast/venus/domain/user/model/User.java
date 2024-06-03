@@ -29,10 +29,14 @@ import java.util.List;
 public class User extends MyModel implements UserDetails {
 
     /**
+     * The id of the user.
+     */
+    private Long id;
+    /**
      * The responses created by the user.
      */
     @OneToMany
-    public List<Response> responses;
+    private List<Response> responses;
     /**
      * The name of the user.
      */
