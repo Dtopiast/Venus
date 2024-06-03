@@ -1,9 +1,9 @@
 package com.dtopiast.venus.core.service;
 
+import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.auth0.jwt.algorithms.Algorithm;
 import com.dtopiast.venus.domain.role.model.Role;
 import com.dtopiast.venus.domain.user.model.User;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,16 +13,15 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.stream.Collectors;
+
 @Service
 public class TokenService {
 
+    private static final ZoneOffset ZONE_OFFSET = ZoneOffset.of("-05:00");
     @Value("${api.security.secret}")
     private String apiSecret;
-
     @Value("${api.security.issuer}")
     private String issuer;
-
-    private static final ZoneOffset ZONE_OFFSET = ZoneOffset.of("-05:00");
 
     public String getToken(User user) {
         try {
@@ -32,7 +31,7 @@ public class TokenService {
                     .withSubject(user.getUsername())
                     .withClaim("id", user.getId())
                     .withClaim("email", user.getEmail())
-                    .withClaim("roles",user.getRoles().stream().map(Role::getName).collect(Collectors.toList()))
+                    .withClaim("roles", user.getRoles().stream().map(Role::getName).collect(Collectors.toList()))
                     .withExpiresAt(getExpireDate())
                     .sign(algorithm);
         } catch (JWTCreationException exception) {

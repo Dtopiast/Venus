@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class AutenticacionService implements UserDetailsService {
 
     private final Repository<User> userRepository;
+
     @Autowired
 
     public AutenticacionService(Repository<User> userRepository) {

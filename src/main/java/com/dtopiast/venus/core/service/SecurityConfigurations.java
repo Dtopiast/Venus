@@ -20,6 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfigurations {
 
     private final SecurityFilter securityFilter;
+
     @Autowired
 
     public SecurityConfigurations(SecurityFilter securityFilter) {
@@ -30,10 +31,10 @@ public class SecurityConfigurations {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(s->s.requestMatchers(HttpMethod.POST, "/login").permitAll())
-                .authorizeHttpRequests(s->s.requestMatchers("/swagger-ui.html", "/v3/api-docs/**","/swagger-ui/**").permitAll())
-                .authorizeHttpRequests(s->s.anyRequest().authenticated()).
-                addFilterBefore(securityFilter,UsernamePasswordAuthenticationFilter.class)
+                .authorizeHttpRequests(s -> s.requestMatchers(HttpMethod.POST, "/login").permitAll())
+                .authorizeHttpRequests(s -> s.requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**").permitAll())
+                .authorizeHttpRequests(s -> s.anyRequest().authenticated()).
+                addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
