@@ -2,7 +2,7 @@ package com.dtopiast.venus.core.service.auth;
 
 import com.dtopiast.venus.domain.user.model.User;
 import com.dtopiast.venus.domain.user.specification.UserByNameSpecification;
-import com.dtopiast.venus.core.service.auth.repository.Repository;
+import com.dtopiast.venus.core.service.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
