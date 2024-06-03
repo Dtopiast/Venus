@@ -1,7 +1,7 @@
 package com.dtopiast.venus.controller;
 
 import com.dtopiast.venus.core.service.auth.JwtToken;
-import com.dtopiast.venus.infraestructure.service.auth.TokenService;
+import com.dtopiast.venus.core.service.auth.TokenService;
 import com.dtopiast.venus.domain.user.dto.AuthUserDto;
 import com.dtopiast.venus.domain.user.model.User;
 import jakarta.validation.Valid;

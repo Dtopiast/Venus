@@ -1,8 +1,8 @@
-package com.dtopiast.venus.infraestructure.service.auth;
+package com.dtopiast.venus.core.service.auth;
 
 import com.dtopiast.venus.domain.user.model.User;
 import com.dtopiast.venus.domain.user.specification.UserByNameSpecification;
-import com.dtopiast.venus.core.service.repository.IRepository;
+import com.dtopiast.venus.core.service.repository.Repository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,12 +17,12 @@ import java.io.IOException;
 public class SecurityFilter extends OncePerRequestFilter {
 
     private final TokenService tokenService;
-    private final IRepository<User> userIRepository;
+    private final Repository<User> userRepository;
 
     @Autowired
-    public SecurityFilter(TokenService tokenService, IRepository<User> userIRepository) {
+    public SecurityFilter(TokenService tokenService, Repository<User> userRepository) {
         this.tokenService = tokenService;
-        this.userIRepository = userIRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class SecurityFilter extends OncePerRequestFilter {
             var token = authHeader.replace("Bearer ", "");
             var username = tokenService.getSubject(token);
             if (username != null) {
-                var user = userIRepository.findAll(new UserByNameSpecification(username)).getFirst();
+                var user = userRepository.findAll(new UserByNameSpecification(username)).getFirst();
                 var authentication = new UsernamePasswordAuthenticationToken(user, null,
                         user.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authentication);
