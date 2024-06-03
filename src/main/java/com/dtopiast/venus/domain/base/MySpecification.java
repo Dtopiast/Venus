@@ -1,4 +1,4 @@
-package com.dtopiast.venus.domain.base.model;
+package com.dtopiast.venus.domain.base;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;

@@ -4,7 +4,7 @@ import com.dtopiast.venus.domain.profile.model.Profile;
 import com.dtopiast.venus.domain.response.model.Response;
 import com.dtopiast.venus.domain.role.model.Role;
 import com.dtopiast.venus.domain.topic.model.Topic;
-import com.dtopiast.venus.domain.base.model.MyModel;
+import com.dtopiast.venus.domain.base.MyModel;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
