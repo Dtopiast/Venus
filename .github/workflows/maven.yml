@@ -37,7 +37,7 @@ jobs:
         run: cp src/main/resources/aplication.yml src/main/resources/application.yaml
 
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B package --file pom.xml -Dspring.profiles.active=prod
         env:
           DB_URL: ${{ secrets.DEV_DB_URL }}
           DB_NAME: ${{ secrets.DEV_DB_NAME }}
