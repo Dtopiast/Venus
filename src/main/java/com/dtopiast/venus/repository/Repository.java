@@ -1,6 +1,6 @@
 package com.dtopiast.venus.repository;
 
-import com.dtopiast.venus.model.base.MyModel;
+import com.dtopiast.venus.domain.base.model.MyModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
