@@ -1,6 +1,6 @@
-package com.dtopiast.venus.presentation.controller.v1;
+package com.dtopiast.venus.presentation.api.controller.v1;
 
-import com.dtopiast.venus.presentation.controller.base.MyController;
+import com.dtopiast.venus.presentation.api.controller.base.MyController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

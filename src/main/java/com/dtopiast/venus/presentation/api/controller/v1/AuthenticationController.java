@@ -1,10 +1,10 @@
-package com.dtopiast.venus.presentation.controller.v1;
+package com.dtopiast.venus.presentation.api.controller.v1;
 
 import com.dtopiast.venus.core.service.auth.JwtToken;
 import com.dtopiast.venus.infraestructure.service.auth.TokenService;
 import com.dtopiast.venus.domain.user.dto.AuthUserDto;
 import com.dtopiast.venus.domain.user.model.User;
-import com.dtopiast.venus.presentation.controller.base.MyController;
+import com.dtopiast.venus.presentation.api.controller.base.MyController;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.dtopiast.venus.presentation.error;
+package com.dtopiast.venus.presentation.api.error;
 
 import com.dtopiast.venus.core.exception.IntegrityBreakException;
 import jakarta.persistence.EntityNotFoundException;
