@@ -37,4 +37,8 @@ public class Course extends MyModel {
      */
     @ManyToMany
     private List<Category> categories;
+
+    public void updateName(String name) {
+        this.name = name;
+    }
 }

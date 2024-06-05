@@ -1,4 +1,4 @@
-package com.dtopiast.venus.infraestructure.service.springdoc;
+package com.dtopiast.venus.infraestructure.configuration.springdoc;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

@@ -17,6 +17,6 @@ public class UserByNameSpecification extends MySpecification<User> {
 
     @Override
     protected Predicate buildPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-        return criteriaBuilder.like(criteriaBuilder.lower(root.get("name")),"%"+name.toLowerCase() +"%");
+        return criteriaBuilder.equal(criteriaBuilder.lower(root.get("name")),name.toLowerCase());
     }
 }

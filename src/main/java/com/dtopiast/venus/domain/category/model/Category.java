@@ -23,9 +23,14 @@ public class Category extends MyModel {
      * The courses associated with the category.
      */
     @ManyToMany
-    public List<Course> courses;
+    private List<Course> courses;
     /**
      * The name of the category.
      */
     private String name;
+
+    public Category updateName(String name){
+        this.name = name;
+        return  this;
+    }
 }

@@ -40,10 +40,25 @@ public class Response extends MyModel {
      */
     @ManyToOne
     private User author;
-
     /**
      * The topic associated with the response.
      */
     @ManyToOne
     private Topic topic;
+    private boolean isEdited;
+
+    public Response updateMessage(String newMessage){
+        this.message = newMessage;
+        this.isEdited = true;
+        return  this;
+    }
+    public Response updateSolution(String newMessage){
+        this.message = newMessage;
+        return  this;
+    }
+
+    public Response setAuthor(User user) {
+        this.author = user;
+        return this;
+    }
 }

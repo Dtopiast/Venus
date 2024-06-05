@@ -1,5 +1,6 @@
 package com.dtopiast.venus.core.service.repository;
 
+import com.dtopiast.venus.core.service.base.MyService;
 import com.dtopiast.venus.domain.base.MyModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -9,6 +10,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  *
  * @param <TEntity> The type of entities managed by this repository, extending MyModel.
  */
-public interface IRepository<TEntity extends MyModel> extends JpaRepository<TEntity, Long>, JpaSpecificationExecutor<TEntity> {
+public interface IRepository<TEntity extends MyModel> extends JpaRepository<TEntity, Long>, JpaSpecificationExecutor<TEntity>, MyService {
 
 }
