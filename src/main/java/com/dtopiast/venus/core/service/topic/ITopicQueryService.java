@@ -1,7 +1,6 @@
 package com.dtopiast.venus.core.service.topic;
 
 import com.dtopiast.venus.core.service.base.MyService;
-import com.dtopiast.venus.domain.response.model.Response;
 import com.dtopiast.venus.domain.topic.model.Topic;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -12,8 +11,8 @@ public interface ITopicQueryService extends MyService {
 
     <T extends Specification<Topic>> List<Topic> getAllTopicsBySpecification(T specification);
 
-    Topic getTopicByName(String topicName);
-    Topic getTopicByAuthor(Long idAuthor);
+    Topic getTopicByTitle(String topicName);
+    List<Topic> getTopicsByAuthorName(String authorName);
 
     Topic getTopicById(Long id);
 }
