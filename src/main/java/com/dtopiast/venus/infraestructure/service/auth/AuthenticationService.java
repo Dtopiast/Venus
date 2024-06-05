@@ -1,9 +1,9 @@
 package com.dtopiast.venus.infraestructure.service.auth;
 
 import com.dtopiast.venus.core.service.auth.IAuthenticationService;
+import com.dtopiast.venus.core.service.repository.IRepository;
 import com.dtopiast.venus.domain.user.model.User;
 import com.dtopiast.venus.domain.user.specification.UserByNameSpecification;
-import com.dtopiast.venus.core.service.repository.IRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +23,8 @@ public class AuthenticationService implements IAuthenticationService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userIRepository.findAll(new UserByNameSpecification(username)).getFirst();
+        return userIRepository.findOne(new UserByNameSpecification(username))
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
+
 }

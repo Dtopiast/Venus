@@ -1,17 +1,16 @@
 package com.dtopiast.venus.domain.course.specification;
 
 import com.dtopiast.venus.domain.base.MySpecification;
-import com.dtopiast.venus.domain.category.model.Category;
 import com.dtopiast.venus.domain.course.model.Course;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
-public class CourseyByNameSpecification extends MySpecification<Course> {
+public class CourseByNameSpecification extends MySpecification<Course> {
 
     private final String name;
-    public CourseyByNameSpecification(String name){
+    public CourseByNameSpecification(String name){
         this.name = name;
     }
 

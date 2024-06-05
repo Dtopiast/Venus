@@ -1,55 +1,103 @@
 package com.dtopiast.venus.infraestructure.service.response;
 
-import com.dtopiast.venus.core.service.category.ICategoryService;
-import com.dtopiast.venus.domain.base.MySpecification;
-import com.dtopiast.venus.domain.category.dto.*;
-import com.dtopiast.venus.domain.category.model.Category;
+import com.dtopiast.venus.core.service.repository.IRepository;
+import com.dtopiast.venus.core.service.response.IResponseService;
+import com.dtopiast.venus.domain.response.dto.CreateResponseDto;
+import com.dtopiast.venus.domain.response.dto.DeleteResponseDto;
+import com.dtopiast.venus.domain.response.dto.UpdateResponseMessageDto;
+import com.dtopiast.venus.domain.response.dto.UpdateResponseSolutionDto;
+import com.dtopiast.venus.domain.response.model.Response;
+import com.dtopiast.venus.domain.topic.model.Topic;
+import com.dtopiast.venus.domain.topic.specification.TopicByTitleSpecification;
+import com.dtopiast.venus.domain.user.model.User;
+import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 
+import java.time.LocalDate;
 import java.util.List;
 
-public class ResponseService  implements ICategoryService {
+public class ResponseService implements IResponseService {
+    private final IRepository<Response> responseRepository;
+    private final IRepository<Topic> topicRepository;
+    private final IRepository<User> userRepository;
+
+    @Autowired
+    public ResponseService(IRepository<Response> responseRepository, IRepository<Topic> topicRepository, IRepository<User> userRepository) {
+        this.responseRepository = responseRepository;
+        this.topicRepository = topicRepository;
+        this.userRepository = userRepository;
+    }
+
     @Override
-    public Category addCourseInCategory(AddCourseInCategoryDto dto) {
+    public Response createResponse(CreateResponseDto dto) {
+
+        var author = getUserById(dto.idAuthor());
+        var topic = getTopicById(dto.idTopic());
+
+        Response response = new Response(dto.message(), null, LocalDate.now(), author, topic, false);
         return null;
     }
 
     @Override
-    public Boolean deleteCourseInCategory(DeleteCourseInCategoryDto dto) {
-        return null;
+    public Boolean deleteResponse(DeleteResponseDto dto) {
+        try {
+            var response = getResponseById(dto.id());
+            responseRepository.delete(response);
+            return true;
+        } catch (Exception e) {
+            return false;
+
+        }
     }
 
     @Override
-    public Category createCategory(CreateCategoryDto dto) {
-        return null;
+    public Response updateResponseMessage(UpdateResponseMessageDto dto) {
+        var response = getResponseById(dto.id());
+        response.updateMessage(dto.newMessage());
+        return responseRepository.save(response);
     }
 
     @Override
-    public Boolean deleteCategory(DeleteCategoryDto dto) {
-        return null;
+    public Response updateResponseSolution(UpdateResponseSolutionDto dto) {
+        var response = getResponseById(dto.id());
+        response.updateSolution(dto.newSolution());
+        return responseRepository.save(response);
     }
 
     @Override
-    public Category updateCategoryName(UpdateCategoryNameDto dto) {
-        return null;
+    public List<Response> getAllResponse() {
+        return responseRepository.findAll();
     }
 
     @Override
-    public List<Category> getAllCategories() {
-        return null;
+    public <T extends Specification<Response>> List<Response> getAllResponsesBySpecification(T specification) {
+        return responseRepository.findAll(specification);
     }
 
     @Override
-    public <T extends MySpecification<Category>> List<Category> getAllCategoriesBySpecification(T specification) {
-        return null;
+    public Response getResponseByTopic(String topicTitle) {
+        var specification = new TopicByTitleSpecification(topicTitle);
+        var topic = topicRepository.findOne(specification)
+                .orElseThrow(() -> new EntityNotFoundException("Category not found with the name"));
+        return topic.getResponses().getFirst();
     }
 
     @Override
-    public Category getCategoryByName(String name) {
-        return null;
+    public Response getResponseById(Long id) {
+        return responseRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Response not found with id " + id));
+
     }
 
-    @Override
-    public Category getCategoryById(Long id) {
-        return null;
+    private User getUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("User not found with id " + id));
     }
+
+    private Topic getTopicById(Long id) {
+        return topicRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Topic not found with id " + id));
+    }
+
 }

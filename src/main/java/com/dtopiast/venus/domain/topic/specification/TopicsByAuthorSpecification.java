@@ -8,7 +8,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
-public class TopicsByAuthorSpecification extends MySpecification<User> {
+public class TopicsByAuthorSpecification extends MySpecification<Topic> {
 
     private final  String author;
     public TopicsByAuthorSpecification(String author){
@@ -16,7 +16,7 @@ public class TopicsByAuthorSpecification extends MySpecification<User> {
     }
 
     @Override
-    protected Predicate buildPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+    protected Predicate buildPredicate(Root<Topic> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
         return criteriaBuilder.like(criteriaBuilder.lower(root.get("name")),"%"+ author.toLowerCase() +"%");
     }}
 
