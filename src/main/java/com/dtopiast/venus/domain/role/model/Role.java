@@ -8,7 +8,6 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 /**
@@ -35,5 +34,9 @@ public class Role extends MyModel {
      */
     @ManyToMany
     private List<User> users;
+    public Role updateName(String newName){
+        this.name = newName;
+        return this;
+    }
 }
 

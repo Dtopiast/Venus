@@ -49,10 +49,25 @@ public class Topic extends MyModel {
     @ManyToOne
     private User author;
 
+    private boolean isEdited;
+
     /**
      * The responses associated with the topic.
      */
     @OneToMany
     private List<Response> responses;
+    public Topic updateMessage(String newMessage){
+        this.isEdited = true;
+        this.message = newMessage;
+        return  this;
+    }
+    public Topic updateTitle(String newTitle){
+        this.title = newTitle;
+        return  this;
+    }
+    public Topic updateStatus(TopicStatus newStatus){
+        this.status = newStatus;
+        return  this;
+    }
 }
 

@@ -29,4 +29,8 @@ public class Profile extends MyModel {
      */
     @ManyToMany
     private List<User> users;
+    public Profile updateName(String name){
+        this.name= name;
+        return  this;
+    }
 }

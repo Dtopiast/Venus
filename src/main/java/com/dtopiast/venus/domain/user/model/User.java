@@ -5,6 +5,7 @@ import com.dtopiast.venus.domain.response.model.Response;
 import com.dtopiast.venus.domain.role.model.Role;
 import com.dtopiast.venus.domain.topic.model.Topic;
 import com.dtopiast.venus.domain.base.MyModel;
+import jakarta.persistence.Column;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -40,6 +41,7 @@ public class User extends MyModel implements UserDetails {
     /**
      * The name of the user.
      */
+    @Column(unique = true)
     private String name;
     /**
      * The email of the user.
@@ -97,5 +99,14 @@ public class User extends MyModel implements UserDetails {
     @Override
     public String getUsername() {
         return name;
+    }
+
+    public User updateEmail(String newEmail) {
+        this.email=newEmail;
+        return this;
+    }
+    public User updatePassword(String password) {
+        this.password = password;
+        return this;
     }
 }
