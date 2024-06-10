@@ -50,7 +50,7 @@ public class RoleService implements IRoleService {
     }
 
     @Override
-    public Role AddUserInRole(AddUserInRoleDto dto) {
+    public Role addUserInRole(AddUserInRoleDto dto) {
         var user = getUserById(dto.idUser());
         var role = getRoleById(dto.idRole());
         user.getRoles().add(role);
