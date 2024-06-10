@@ -12,6 +12,8 @@ import com.dtopiast.venus.domain.topic.specification.TopicByTitleSpecification;
 import com.dtopiast.venus.domain.user.model.User;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.time.LocalDate;
@@ -88,6 +90,11 @@ public class ResponseService implements IResponseService {
         return responseRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Response not found with id " + id));
 
+    }
+
+    @Override
+    public Page<Response> getAllResponse(Pageable pageable) {
+        return responseRepository.findAll(pageable);
     }
 
     private User getUserById(Long id) {
